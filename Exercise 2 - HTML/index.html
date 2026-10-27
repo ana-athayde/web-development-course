@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MinhaSaúdePet - Painel do Pet</title>
+</head>
+
+
+<body>  
+    <h1>Meus Pets</h1>
+    <p><b>Luna</b> - <i>Golden Retriever</i></p>
+    <a href="luna.html">Ver detalhes</a>
+    <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=200" alt="Luna" class="pet-avatar">
+
+    <!-- comentário -->
+    <p style="color:red;">This is another paragraph.</p>
+
+    <h2>Informações</h2>
+
+    <h3>Cuidados diários</h3>
+    <ul>
+        <li>Oferecer água fresca</li>
+        <li>Escovar os pelos</li>
+        <li>Fazer uma caminhada</li>
+    </ul>
+
+    <h3>Rotina da Luna</h3>
+    <ol>
+        <li>Manhã
+            <ul>
+                <li>Café da manhã</li>
+                <li>Passeio no parque</li>
+            </ul>
+        </li>
+        <li>Tarde</li>
+        <li>Noite</li>
+    </ol>
+
+    <h3>Termos importantes</h3>
+    <dl>
+        <dt>Vacinação</dt>
+        <dd>Proteção contra doenças e manutenção da saúde do pet.</dd>
+        <dt>Vermifugação</dt>
+        <dd>Tratamento preventivo contra vermes e parasitas.</dd>
+    </dl>
+
+    <h2>Tabelas</h2>
+
+    <table border="1">
+        <caption>Agenda de cuidados da Luna</caption>
+        <thead>
+            <tr>
+                <th>Dia</th>
+                <th>Atividade</th>
+                <th>Horário</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Segunda-feira</td>
+                <td>Passeio</td>
+                <td>08:00</td>
+            </tr>
+            <tr>
+                <td>Quarta-feira</td>
+                <td>Escovação</td>
+                <td>18:00</td>
+            </tr>
+            <tr>
+                <td>Sexta-feira</td>
+                <td>Banho</td>
+                <td>17:00</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <table border="1">
+        <caption>Histórico de vacinas</caption>
+        <thead>
+            <tr>
+                <th>Vacina</th>
+                <th>Data</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Antirrábica</td>
+                <td>10/02/2026</td>
+                <td>Em dia</td>
+            </tr>
+            <tr>
+                <td>V8</td>
+                <td>15/03/2026</td>
+                <td>Em dia</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Próxima revisão: fevereiro de 2027</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <h2>Cadastro de acompanhamento</h2>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Dados do pet</legend>
+
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" value="Luna" required>
+            <br><br>
+
+            <label for="email">E-mail do responsável:</label>
+            <input type="email" id="email" name="email" placeholder="responsavel@email.com" required>
+            <br><br>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha">
+            <br><br>
+
+            <label for="nascimento">Data de nascimento:</label>
+            <input type="date" id="nascimento" name="nascimento">
+            <br><br>
+
+            <label for="peso">Peso (kg):</label>
+            <input type="number" id="peso" name="peso" min="0" step="0.1">
+            <br><br>
+
+            <label for="raca">Raça:</label>
+            <select id="raca" name="raca">
+                <option value="golden-retriever">Golden Retriever</option>
+                <option value="labrador">Labrador</option>
+                <option value="outra">Outra</option>
+            </select>
+            <br><br>
+
+            <span>Sexo:</span>
+            <input type="radio" id="femea" name="sexo" value="femea" checked>
+            <label for="femea">Fêmea</label>
+            <input type="radio" id="macho" name="sexo" value="macho">
+            <label for="macho">Macho</label>
+            <br><br>
+
+            <span>Serviços desejados:</span>
+            <input type="checkbox" id="consulta" name="servicos" value="consulta">
+            <label for="consulta">Consulta</label>
+            <input type="checkbox" id="banho" name="servicos" value="banho">
+            <label for="banho">Banho</label>
+            <input type="checkbox" id="vacina" name="servicos" value="vacina">
+            <label for="vacina">Vacinação</label>
+            <br><br>
+
+            <label for="observacoes">Observações:</label><br>
+            <textarea id="observacoes" name="observacoes" rows="4" cols="40" placeholder="Conte como está a saúde do pet"></textarea>
+            <br><br>
+
+            <label for="foto">Foto do pet:</label>
+            <input type="file" id="foto" name="foto" accept="image/*">
+            <br><br>
+
+            <label for="humor">Nível de energia:</label>
+            <input type="range" id="humor" name="humor" min="1" max="10" value="8">
+            <br><br>
+
+            <label for="cor">Cor da coleira:</label>
+            <input type="color" id="cor" name="cor" value="#e67e22">
+            <br><br>
+
+            <input type="submit" value="Salvar cadastro">
+            <input type="reset" value="Limpar formulário">
+        </fieldset>
+    </form>
+
+</body>
+
+
+</html>
