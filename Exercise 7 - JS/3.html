@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 3</title>
+</head>
+<body>
+
+<!-- 3- Ler o nome do usuário (via prompt) e imprimir a mensagem:
+"Bom dia, boa tarde ou boa noite (de acordo com o horário atual), NOME INFORMADO, hoje é: dia da semana, dia/mês/ano."
+Ex. Boa Tarde, Maria, hoje é terça-feira, 07/04/2026. -->
+
+<script>
+
+var nome = prompt("Digite seu nome:");
+
+var data = new Date();
+var hora = data.getHours();
+
+var mensagem;
+
+if (hora < 12) {
+    mensagem = "Bom dia";
+} else if (hora < 18) {
+    mensagem = "Boa tarde";
+} else {
+    mensagem = "Boa noite";
+}
+
+var dias = [
+    "domingo",
+    "segunda-feira",
+    "terça-feira",
+    "quarta-feira",
+    "quinta-feira",
+    "sexta-feira",
+    "sábado"
+];
+
+var diaSemana = dias[data.getDay()];
+var dia = data.getDate();
+var mes = data.getMonth() + 1;
+var ano = data.getFullYear();
+
+alert(
+    mensagem + ", " + nome +
+    ", hoje é " + diaSemana +
+    ", " + dia + "/" + mes + "/" + ano + "."
+);
+
+</script>
+
+</body>
+</html>

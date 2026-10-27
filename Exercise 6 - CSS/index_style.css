@@ -1,0 +1,44 @@
+/* ===== Estilos que no template original vinham no bloco <style> ===== */
+body, h1, h2, h3, h4, h5 {
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    font-size: 16px;
+}
+
+/* Efeito de opacidade nas fotos da galeria */
+.w3-half img {
+    margin-bottom: -6px;
+    margin-top: 16px;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.w3-half img:hover {
+    opacity: 1;
+}
+
+/* ===== Estilos próprios do projeto ===== */
+
+/* Substitui o style="width:50px;border:5px solid red" repetido no template */
+.linha-titulo {
+    width: 50px;
+    border: 5px solid #009688;
+}
+
+.pet-avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.paragrafo_vermelho {
+    color: red;
+}
+
+/* Lista aninhada da rotina */
+.rotina ul {
+    margin-top: 8px;
+}

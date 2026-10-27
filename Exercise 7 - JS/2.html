@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 2</title>
+</head>
+<body>
+
+<!-- 2- Crie um formulário com 4 campos, sendo todos obrigatórios. 
+Na submissão, verificar se os dados obrigatórios foram informados, 
+mostre o Erro ocorrido ou 'Sucesso' através de janela alert. Ver exemplo 10. -->
+
+<h2>Formulário</h2>
+
+<form onsubmit="return verificar()">
+
+    Nome:
+    <input type="text" id="nome">
+    <br><br>
+
+    E-mail:
+    <input type="text" id="email">
+    <br><br>
+
+    Cidade:
+    <input type="text" id="cidade">
+    <br><br>
+
+    Telefone:
+    <input type="text" id="telefone">
+    <br><br>
+
+    <input type="submit" value="Enviar">
+
+</form>
+
+<script>
+function verificar() {
+
+    var nome = document.getElementById("nome").value.trim();
+    var email = document.getElementById("email").value.trim();
+    var cidade = document.getElementById("cidade").value.trim();
+    var telefone = document.getElementById("telefone").value.trim();
+
+    if (nome == "" || email == "" || cidade == "" || telefone == "") {
+        alert("Erro ocorrido: preencha todos os campos obrigatórios.");
+        return false;
+    }
+
+    alert("Sucesso!");
+    return true;
+}
+</script>
+
+</body>
+</html>

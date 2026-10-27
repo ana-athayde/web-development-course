@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>MinhaSaúdePet - Painel do Pet</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="index_style.css">
+</head>
+
+<body>
+
+    <nav class="w3-sidebar w3-teal w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Fechar Menu</a>
+        <div class="w3-container">
+            <h3 class="w3-padding-64"><b>MinhaSaúde<br>Pet</b></h3>
+        </div>
+        <div class="w3-bar-block">
+            <a href="#inicio" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Início</a>
+            <a href="#galeria" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Meus Pets</a>
+            <a href="#cuidados" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Cuidados</a>
+            <a href="#agenda" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Agenda</a>
+            <a href="#planos" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Planos</a>
+            <a href="#cadastro" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Cadastro</a>
+           
+            <a href="javascript:void(0)" onclick="gerarDicaDia()" class="w3-bar-item w3-button w3-hover-white w3-margin-top w3-border w3-round">💡 Dica do Dia</a>
+        </div>
+    </nav>
+
+    
+    <header class="w3-container w3-top w3-hide-large w3-teal w3-xlarge w3-padding">
+        <a href="javascript:void(0)" class="w3-button w3-teal w3-margin-right" onclick="w3_open()">☰</a>
+        <span>MinhaSaúdePet</span>
+    </header>
+
+    
+    <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="fechar menu lateral" id="myOverlay"></div>
+
+    
+    <div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+        
+        <div class="w3-container" style="margin-top:80px" id="inicio">
+            <h1 class="w3-jumbo"><b>Meus Pets</b></h1>
+            <h1 class="w3-xxxlarge w3-text-teal"><b>Painel de saúde.</b></h1>
+            <hr class="linha-titulo w3-round">
+        </div>
+
+        
+        <div class="w3-container">
+            <div class="w3-card-4 w3-white w3-padding-16 w3-margin-bottom">
+                <div class="w3-row">
+                    <div class="w3-col m3 w3-center w3-padding">
+                        <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=400" alt="Luna" class="pet-avatar">
+                    </div>
+                    <div class="w3-col m9 w3-padding">
+                        <h2><b>Luna</b> - <i>Golden Retriever</i></h2>
+                        <p class="w3-opacity">Fêmea · 3 anos · 28 kg</p>
+                        
+                        <p class="paragrafo_vermelho">Vacina antirrábica vence em fevereiro de 2027.</p>
+                        <a href="luna.html" class="w3-button w3-teal w3-round">Ver detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="w3-container" id="galeria" style="margin-top:75px">
+            <h1 class="w3-xxxlarge w3-text-teal"><b>Meus Pets.</b></h1>
+            <hr class="linha-titulo w3-round">
+            <p>Clique em uma foto para ampliar.</p>
+        </div>
+
+        <div class="w3-row-padding">
+            <div class="w3-half">
+                <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=800" style="width:100%" onclick="onClick(this)" alt="Luna no parque">
+                <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=800" style="width:100%" onclick="onClick(this)" alt="Thor esperando o passeio">
+                <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=800" style="width:100%" onclick="onClick(this)" alt="Depois do banho">
+            </div>
+
+            <div class="w3-half">
+                <img src="assets/mia_dormindo.jpeg" style="width:100%" onclick="onClick(this)" alt="Mia tirando um cochilo">
+                <img src="assets/mia_janela.jpg" style="width:100%" onclick="onClick(this)" alt="Mia na janela">
+                <img src="assets/hamster_escovacao.jpeg" style="width:100%" onclick="onClick(this)" alt="Hora da escovação">
+            </div>
+        </div>
+
+       
+        <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+            <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+            <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+                <img id="img01" class="w3-image">
+                <p id="caption"></p>
+            </div>
+        </div>
+
+        
+        <div class="w3-container" id="cuidados" style="margin-top:75px">
+            <h1 class="w3-xxxlarge w3-text-teal"><b>Cuidados.</b></h1>
+            <hr class="linha-titulo w3-round">
+            <p>Tudo o que a Luna precisa para se manter saudável no dia a dia.</p>
+
+            <h3>Cuidados diários</h3>
+            <ul class="w3-ul w3-card w3-white">
+                <li>Oferecer água fresca</li>
+                <li>Escovar os pelos</li>
+                <li>Fazer uma caminhada</li>
+            </ul>
+
+            <h3>Rotina da Luna</h3>
+            <ol class="rotina">
+                <li>Manhã
+                    <ul>
+                        <li>Café da manhã</li>
+                        <li>Passeio no parque</li>
+                    </ul>
+                </li>
+                <li>Tarde</li>
+                <li>Noite</li>
+            </ol>
+
+            <h3>Termos importantes</h3>
+            <dl>
+                <dt><b>Vacinação</b></dt>
+                <dd>Proteção contra doenças e manutenção da saúde do pet.</dd>
+                <dt><b>Vermifugação</b></dt>
+                <dd>Tratamento preventivo contra vermes e parasitas.</dd>
+            </dl>
+        </div>
+
+        
+        <div class="w3-container" id="agenda" style="margin-top:75px">
+            <h1 class="w3-xxxlarge w3-text-teal"><b>Agenda.</b></h1>
+            <hr class="linha-titulo w3-round">
+
+            <table class="w3-table w3-bordered w3-striped w3-card w3-white w3-margin-bottom">
+                <caption class="w3-left-align w3-padding-8"><b>Agenda de cuidados da Luna</b></caption>
+                <thead class="w3-teal">
+                    <tr>
+                        <th>Dia</th>
+                        <th>Atividade</th>
+                        <th>Horário</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Segunda-feira</td>
+                        <td>Passeio</td>
+                        <td>08:00</td>
+                    </tr>
+                    <tr>
+                        <td>Quarta-feira</td>
+                        <td>Escovação</td>
+                        <td>18:00</td>
+                    </tr>
+                    <tr>
+                        <td>Sexta-feira</td>
+                        <td>Banho</td>
+                        <td>17:00</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="w3-table w3-bordered w3-striped w3-card w3-white">
+                <caption class="w3-left-align w3-padding-8"><b>Histórico de vacinas</b></caption>
+                <thead class="w3-teal">
+                    <tr>
+                        <th>Vacina</th>
+                        <th>Data</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Antirrábica</td>
+                        <td>10/02/2026</td>
+                        <td>Em dia</td>
+                    </tr>
+                    <tr>
+                        <td>V8</td>
+                        <td>15/03/2026</td>
+                        <td>Em dia</td>
+                    </tr>
+                </tbody>
+                <tfoot class="w3-light-grey">
+                    <tr>
+                        <td colspan="3">Próxima revisão: fevereiro de 2027</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        
+        <div class="w3-container" id="planos" style="margin-top:75px">
+            <h1 class="w3-xxxlarge w3-text-teal"><b>Planos.</b></h1>
+            <hr class="linha-titulo w3-round">
+            <p>Escolha o plano de acompanhamento que melhor se encaixa na rotina do seu pet.</p>
+        </div>
+
+        <div class="w3-row-padding">
+            <div class="w3-half w3-margin-bottom">
+                <ul class="w3-ul w3-light-grey w3-center">
+                    <li class="w3-dark-grey w3-xlarge w3-padding-32">Básico</li>
+                    <li class="w3-padding-16">Carteira de vacinação digital</li>
+                    <li class="w3-padding-16">1 consulta por mês</li>
+                    <li class="w3-padding-16">Lembretes de vermifugação</li>
+                    <li class="w3-padding-16">10% de desconto em banho</li>
+                    <li class="w3-padding-16">Suporte por e-mail</li>
+                    <li class="w3-padding-16">
+                        <h2>R$ 79</h2>
+                        <span class="w3-opacity">por mês</span>
+                    </li>
+                    <li class="w3-light-grey w3-padding-24">
+                        <button class="w3-button w3-white w3-padding-large w3-hover-black">Assinar</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="w3-half">
+                <ul class="w3-ul w3-light-grey w3-center">
+                    <li class="w3-teal w3-xlarge w3-padding-32">Premium</li>
+                    <li class="w3-padding-16">Carteira de vacinação digital</li>
+                    <li class="w3-padding-16">Consultas ilimitadas</li>
+                    <li class="w3-padding-16">Vacinas incluídas</li>
+                    <li class="w3-padding-16">50% de desconto em banho e tosa</li>
+                    <li class="w3-padding-16">Atendimento 24h</li>
+                    <li class="w3-padding-16">
+                        <h2>R$ 149</h2>
+                        <span class="w3-opacity">por mês</span>
+                    </li>
+                    <li class="w3-light-grey w3-padding-24">
+                        <button class="w3-button w3-teal w3-padding-large w3-hover-black">Assinar</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+  
+        <div class="w3-container" id="cadastro" style="margin-top:75px">
+            <h1 class="w3-xxxlarge w3-text-teal"><b>Cadastro.</b></h1>
+            <hr class="linha-titulo w3-round">
+            <p>Preencha os dados do seu pet para começar o acompanhamento.</p>
+
+           
+            <form id="formCadastro" action="#" method="post">
+                <fieldset class="w3-card w3-white w3-padding-16">
+                    <legend class="w3-padding-small"><b>Dados do pet</b></legend>
+
+                    <div class="w3-section">
+                        <label for="nome">Nome:</label>
+                        <input class="w3-input w3-border" type="text" id="nome" name="nome" value="Luna" required>
+                    </div>
+
+                    <div class="w3-section">
+                        <label for="email">E-mail do responsável:</label>
+                        <input class="w3-input w3-border" type="email" id="email" name="email" placeholder="responsavel@email.com" required>
+                    </div>
+
+                    <div class="w3-section">
+                        <label for="senha">Senha:</label>
+                        <input class="w3-input w3-border" type="password" id="senha" name="senha" placeholder="Mín. 6 caracteres (letras e números)">
+                    </div>
+
+                    <div class="w3-row-padding" style="margin:0 -16px">
+                        <div class="w3-third w3-section">
+                            <label for="nascimento">Data de nascimento:</label>
+                            <input class="w3-input w3-border" type="date" id="nascimento" name="nascimento">
+                            
+                            <span id="resultadoIdade" class="w3-text-teal w3-small" style="font-weight:bold;"></span>
+                        </div>
+                        <div class="w3-third w3-section">
+                            <label for="peso">Peso (kg):</label>
+                            <input class="w3-input w3-border" type="number" id="peso" name="peso" min="0" step="0.1">
+                            
+                            <span id="resultadoAgua" class="w3-text-teal w3-small" style="font-weight:bold;"></span>
+                        </div>
+                        <div class="w3-third w3-section">
+                            <label for="raca">Raça:</label>
+                            <select class="w3-select w3-border" id="raca" name="raca">
+                                <option value="golden-retriever">Golden Retriever</option>
+                                <option value="labrador">Labrador</option>
+                                <option value="outra">Outra</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="w3-section">
+                        <span><b>Sexo:</b></span><br>
+                        <input class="w3-radio" type="radio" id="femea" name="sexo" value="femea" checked>
+                        <label for="femea">Fêmea</label>
+                        <input class="w3-radio" type="radio" id="macho" name="sexo" value="macho">
+                        <label for="macho">Macho</label>
+                    </div>
+
+                    <div class="w3-section">
+                        <span><b>Serviços desejados:</b></span><br>
+                        <input class="w3-check" type="checkbox" id="consulta" name="servicos" value="consulta">
+                        <label for="consulta">Consulta</label>
+                        <input class="w3-check" type="checkbox" id="banho" name="servicos" value="banho">
+                        <label for="banho">Banho</label>
+                        <input class="w3-check" type="checkbox" id="vacina" name="servicos" value="vacina">
+                        <label for="vacina">Vacinação</label>
+                    </div>
+
+                    <div class="w3-section">
+                        <label for="observacoes">Observações:</label>
+                        <textarea class="w3-input w3-border" id="observacoes" name="observacoes" rows="4" placeholder="Conte como está a saúde do pet"></textarea>
+                    </div>
+
+                    <button type="submit" class="w3-button w3-teal w3-padding-large w3-margin-bottom">Salvar cadastro</button>
+                    <button type="reset" class="w3-button w3-light-grey w3-padding-large w3-margin-bottom">Limpar formulário</button>
+                </fieldset>
+            </form>
+        </div>
+
+        
+    </div>
+
+  
+    <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px">
+        <p class="w3-right">Feito com <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p>
+    </div>
+
+    <script>
+        
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+
+        function onClick(element) {
+            document.getElementById("img01").src = element.src;
+            document.getElementById("modal01").style.display = "block";
+            var captionText = document.getElementById("caption");
+            captionText.innerHTML = element.alt;
+        }
+
+        // 1
+        function gerarDicaDia() {
+            const dicas = [
+                "Escove os dentes do seu pet pelo menos 3 vezes na semana!",
+                "Cães precisam de passeios diários para a saúde física e mental.",
+                "Gatos adoram caixas de papelão pois se sentem seguros.",
+                "Mantenha a carteira de vacinação sempre atualizada.",
+                "Evite dar doces e chocolates aos pets, são tóxicos!"
+            ];
+            
+            let indice = Math.floor(Math.random() * dicas.length);
+            window.alert("🐾 DICA DO DIA:\n\n" + dicas[indice]);
+        }
+
+        // 2
+        document.getElementById("nome").addEventListener("blur", function(e) {
+            let nomeOriginal = e.target.value;
+            
+            let nomeFormatado = nomeOriginal.replace(/\b\w/g, function(letra) {
+                return letra.toUpperCase();
+            });
+            e.target.value = nomeFormatado;
+        });
+
+        // 3
+        document.getElementById("nascimento").addEventListener("change", function(e) {
+            if(!e.target.value) return;
+            
+            let dataNasc = new Date(e.target.value);
+            let dataAtual = new Date();
+            
+            let idadeAno = dataAtual.getFullYear() - dataNasc.getFullYear();
+            let mes = dataAtual.getMonth() - dataNasc.getMonth();
+            
+            if (mes < 0 || (mes === 0 && dataAtual.getDate() < dataNasc.getDate())) {
+                idadeAno--;
+            }
+            
+            let resultado = document.getElementById("resultadoIdade");
+            if (idadeAno >= 0) {
+                resultado.innerText = `Idade aproximada: ${idadeAno} ano(s).`;
+            }
+        });
+
+        // 4
+        document.getElementById("peso").addEventListener("input", function(e) {
+            let peso = parseFloat(e.target.value);
+            let resultado = document.getElementById("resultadoAgua");
+            
+            if(peso > 0) {
+                let aguaMl = Math.round(peso * 50); 
+                let aguaLitros = (aguaMl / 1000).toFixed(2);
+                resultado.innerText = `Ideal: ${aguaLitros} L de água/dia.`;
+            } else {
+                resultado.innerText = "";
+            }
+        });
+
+        // 5
+        document.getElementById("formCadastro").addEventListener("submit", function(e) {
+            let senhaInput = document.getElementById("senha").value;
+            
+            let regexSenha = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{6,}$/;
+            
+            if (senhaInput.length > 0 && !regexSenha.test(senhaInput)) {
+                window.alert("AVISO: A senha não atende aos requisitos!\n\nEla deve conter pelo menos 6 caracteres, incluindo letras e números.");
+                e.preventDefault(); 
+            } else if (senhaInput.length > 0) {
+                window.alert("Formulário enviado com sucesso!");
+            }
+        });
+
+    </script>
+
+</body>
+</html>

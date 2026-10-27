@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 1</title>
+</head>
+<body>
+
+<!-- 1-Faça um formulário com 3 campos de texto, alterar para letras maiúsculas e minúsculas através de checkbox. Ver exemplo 6. -->
+
+<h2>Alterar texto</h2>
+
+<form>
+    <input type="text" id="texto1"><br><br>
+    <input type="text" id="texto2"><br><br>
+    <input type="text" id="texto3"><br><br>
+
+    <input type="checkbox" id="maiuscula" onclick="alterarMaiuscula()">
+    <label>Maiúsculas</label>
+
+    <input type="checkbox" id="minuscula" onclick="alterarMinuscula()">
+    <label>Minúsculas</label>
+</form>
+
+<script>
+function alterarMaiuscula() {
+    if (document.getElementById("maiuscula").checked) {
+        document.getElementById("texto1").value =
+            document.getElementById("texto1").value.toUpperCase();
+
+        document.getElementById("texto2").value =
+            document.getElementById("texto2").value.toUpperCase();
+
+        document.getElementById("texto3").value =
+            document.getElementById("texto3").value.toUpperCase();
+    }
+}
+
+function alterarMinuscula() {
+    if (document.getElementById("minuscula").checked) {
+        document.getElementById("texto1").value =
+            document.getElementById("texto1").value.toLowerCase();
+
+        document.getElementById("texto2").value =
+            document.getElementById("texto2").value.toLowerCase();
+
+        document.getElementById("texto3").value =
+            document.getElementById("texto3").value.toLowerCase();
+    }
+}
+</script>
+
+</body>
+</html>
