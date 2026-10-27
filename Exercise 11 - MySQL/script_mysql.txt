@@ -1,0 +1,54 @@
+# Exercício MySQL -- ODAW
+# Alunos: Ana e Mauricio
+# script rodando em um sistema macos
+
+# comando para instalar o pacote do mysql caso ainda não esteja instalado na máquina
+brew install mysql
+
+# iniciar os serviços do mysql 
+brew services start mysql
+
+# ou iniciar os serviços apenas enquanto o terminal estiver aberto
+# (para não deixar aberto em segundo plano)
+mysql.server start
+
+# definir uma senha padrão para root
+mysql_secure_installation
+
+# acessar o mysql seguido da senha root
+mysql -u root -p
+
+# criar um banco de dados "exercicio11"
+mysql> CREATE DATABASE exercicio11;
+
+# usar o banco de dados "exercicio11"
+mysql> USE exercicio11;
+
+# criar a primeira tabela "cachorros"
+mysql> CREATE TABLE cachorros (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    raca VARCHAR(100),
+    peso DECIMAL(5, 2),
+    altura DECIMAL(3, 2)
+);
+
+# inserir dados na tabela
+mysql> INSERT INTO cachorros (nome, raca, peso, altura)
+       VALUES ('Jack', 'Pastor Alemão', 15.43, 96.10),
+              ('Roque', 'SRD', 10.23, 60.4);
+
+# alterar dados da tabela
+mysql> UPDATE cachorros SET peso = 16 WHERE nome = 'Jack';
+ 
+# visualizar os dados da tabela
+mysql> SELECT * FROM cachorros;
+
+# apagar dados
+mysql> DELETE FROM cachorros WHERE nome = 'Roque';
+
+# apagar a tabela cachorros
+mysql> DROP TABLE cachorros;
+
+# apagar a base de dados "exercicio11"
+mysql> DROP DATABASE exercicio11;
